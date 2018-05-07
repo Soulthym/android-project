@@ -6,19 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
- <Button
-     android:id="@+id/btndl"
-     android:onClick="launchActivity"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_centerVertical="true"
-     android:layout_centerHorizontal="true"
-     android:text="@string/btndl"/>
+    <Button
+        android:id="@+id/btndl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/btndl"/>
 
- <ImageView
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_above="@+id/btndl"
-     android:src="@drawable/biere"/>
+    <Button
+        android:id="@+id/btnd2"
+        android:onClick="launchActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/btnd2"/>
+
+    <ImageView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/btndl"
+         android:src="@drawable/biere"/>
 
 </RelativeLayout>

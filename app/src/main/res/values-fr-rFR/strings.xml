@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Bibine</string>
     <string name="btndl">Télécharger les Bières</string>
+    <string name="btnd2">Liste</string>
 </resources>
