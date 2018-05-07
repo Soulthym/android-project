@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).registerReceiver(new BeerUpdate(),intentFilter);
     }
 
-    public void launchActivity(View target) {
+    public void launchListActivity(View target) {
         Intent i = new Intent(this, ListActivity.class);
         startActivity(i);
     }
