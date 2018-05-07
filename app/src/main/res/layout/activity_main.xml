@@ -12,8 +12,6 @@
      android:layout_height="wrap_content"
      android:layout_centerVertical="true"
      android:layout_centerHorizontal="true"
-     android:textSize="50px"
-     android:text="Download Beer"/>
+     android:text="@string/btndl"/>
 
 </RelativeLayout>
-
