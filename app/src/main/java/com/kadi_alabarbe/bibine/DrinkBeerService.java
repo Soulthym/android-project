@@ -60,7 +60,7 @@ public class DrinkBeerService extends IntentService {
         Log.d(TAG, "Thread service name:" + Thread.currentThread().getName());
         URL url = null;
         try {
-            url = new URL("http://binouze.fabrigi.fr/bieres.json");
+            url = new URL("http://binouze.fabrigli.fr/bieres.json");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.connect();
@@ -69,8 +69,8 @@ public class DrinkBeerService extends IntentService {
                         new File(getCacheDir(), "bieres.json"));
                 Log.d(TAG, "Bières json downloaded !");
                 LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(MainActivity.BEER_UPDATE));
-
             }
+
         }catch(MalformedURLException e) {
             e.printStackTrace();
         }catch (IOException e) {
