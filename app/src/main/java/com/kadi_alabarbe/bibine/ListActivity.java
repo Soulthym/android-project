@@ -14,5 +14,6 @@ public class ListActivity  extends AppCompatActivity {
         final RecyclerView rv = (RecyclerView) findViewById(R.id.list);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new ListAdapter());
+
     }
 }
