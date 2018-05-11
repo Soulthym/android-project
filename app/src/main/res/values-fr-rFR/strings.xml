@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Bibine</string>
-    <string name="btndl">Télécharger les Bières</string>
+    <string name="btndl">Commencer à Boire</string>
     <string name="btnd2">Liste</string>
 </resources>
