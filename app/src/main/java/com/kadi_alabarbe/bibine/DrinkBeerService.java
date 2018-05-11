@@ -37,7 +37,7 @@ public class DrinkBeerService extends IntentService {
     }
 
     public DrinkBeerService() {
-        super("GetPokemonServices");
+        super("DrinkBeerService");
     }
 
     public static void startActionPoke(Context context) {
