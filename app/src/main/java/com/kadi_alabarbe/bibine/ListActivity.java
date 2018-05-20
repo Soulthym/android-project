@@ -21,7 +21,7 @@ import java.io.InputStream;
 
 import static java.lang.Thread.sleep;
 
-public class ListActivity  extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity {
     private ListActivity.BeerUpdate Beer;
     public static final String BEER_UPDATE = "com.octip.cours.inf4042_11.BIERS_UPDATE";
     // --Commented out by Inspection (20/05/2018 23:49):private static final String TAG = DrinkBeerService.class.getSimpleName();
@@ -38,8 +38,9 @@ public class ListActivity  extends AppCompatActivity {
         rv.setAdapter(Adapter);
         IntentFilter intentFilter = new IntentFilter(BEER_UPDATE);
         Beer = new ListActivity.BeerUpdate();
-        LocalBroadcastManager.getInstance(this).registerReceiver(Beer,intentFilter);
+        LocalBroadcastManager.getInstance(this).registerReceiver(Beer, intentFilter);
     }
+
     private void launchDownload() {
         DrinkBeerService.startActionPoke(this);
     }
@@ -50,9 +51,10 @@ public class ListActivity  extends AppCompatActivity {
 //            Log.d(TAG, getIntent().getAction());
             Adapter.setJArr(getBeerFromFile());
             Adapter.ConvertToArray();
-            Log.d("TODO","UPDATE");
+            Log.d("TODO", "UPDATE");
         }
-        JSONArray getBeerFromFile(){
+
+        JSONArray getBeerFromFile() {
             try {
                 InputStream is = new FileInputStream(getCacheDir() + "/" + "bieres.json");
                 byte[] buffer = new byte[is.available()];

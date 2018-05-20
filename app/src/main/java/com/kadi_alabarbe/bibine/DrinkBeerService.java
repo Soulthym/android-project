@@ -65,15 +65,14 @@ public class DrinkBeerService extends IntentService {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.connect();
-            if(HttpURLConnection.HTTP_OK == conn.getResponseCode()) {
+            if (HttpURLConnection.HTTP_OK == conn.getResponseCode()) {
                 copyInputStreamToFile(conn.getInputStream(),
                         new File(getCacheDir(), "bieres.json"));
                 LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(ListActivity.BEER_UPDATE));
             }
-
-        }catch(MalformedURLException e) {
+        } catch (MalformedURLException e) {
             e.printStackTrace();
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

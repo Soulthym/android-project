@@ -18,6 +18,7 @@ import org.json.JSONObject;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import android.view.View;
 import android.widget.Toast;
 
@@ -30,12 +31,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //        DrinkBeerService.startActionPoke(this);
     }
+
     public void launchListActivity(View target) {
         Intent i = new Intent(this, ListActivity.class);
         startActivity(i);
 
-        NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         Notification notification = new Notification(android.R.drawable.alert_dark_frame, "Toc toc, c'est une notification !", System.currentTimeMillis());
-        notificationManager.notify(0,notification);
+        notificationManager.notify(0, notification);
     }
 }

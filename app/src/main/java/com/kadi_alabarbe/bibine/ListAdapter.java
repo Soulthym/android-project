@@ -17,15 +17,17 @@ import java.util.ArrayList;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private JSONArray JArr;
-    private final ArrayList<Pair<String,String>> Arr = new ArrayList<>();
+    private final ArrayList<Pair<String, String>> Arr = new ArrayList<>();
+
     void setJArr(JSONArray Array) {
         JArr = Array;
     }
-    public void ConvertToArray(){
+
+    public void ConvertToArray() {
         JSONArray jsonArray = JArr;
         if (jsonArray != null) {
             int len = jsonArray.length();
-            for (int i = 0; i < len; i++){
+            for (int i = 0; i < len; i++) {
                 String name;
                 String description;
                 JSONObject sub;
@@ -36,10 +38,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                     Log.d("name", String.valueOf(name));
                     description = sub.getString("description");
                     Log.d("description", String.valueOf(description));
-                    Pair<String,String> p = new Pair<>(name, description);
+                    Pair<String, String> p = new Pair<>(name, description);
                     Arr.add(p);
                     Log.d("ARRAY", String.valueOf(Arr));
-                } catch (JSONException | UnsupportedOperationException e){
+                } catch (JSONException | UnsupportedOperationException e) {
                     e.printStackTrace();
                 }
             }
