@@ -22,10 +22,10 @@ import java.io.InputStream;
 import static java.lang.Thread.sleep;
 
 public class ListActivity  extends AppCompatActivity {
-    ListActivity.BeerUpdate Beer;
+    private ListActivity.BeerUpdate Beer;
     public static final String BEER_UPDATE = "com.octip.cours.inf4042_11.BIERS_UPDATE";
-    private static final String TAG = DrinkBeerService.class.getSimpleName();
-    ListAdapter Adapter;
+    // --Commented out by Inspection (20/05/2018 23:49):private static final String TAG = DrinkBeerService.class.getSimpleName();
+    private ListAdapter Adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,7 @@ public class ListActivity  extends AppCompatActivity {
         Beer = new ListActivity.BeerUpdate();
         LocalBroadcastManager.getInstance(this).registerReceiver(Beer,intentFilter);
     }
-    public void launchDownload() {
+    private void launchDownload() {
         DrinkBeerService.startActionPoke(this);
     }
 
@@ -52,7 +52,7 @@ public class ListActivity  extends AppCompatActivity {
             Adapter.ConvertToArray();
             Log.d("TODO","UPDATE");
         }
-        public JSONArray getBeerFromFile(){
+        JSONArray getBeerFromFile(){
             try {
                 InputStream is = new FileInputStream(getCacheDir() + "/" + "bieres.json");
                 byte[] buffer = new byte[is.available()];
