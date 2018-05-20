@@ -1,20 +1,25 @@
 package com.kadi_alabarbe.bibine;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-
-    private final List<Pair<String, String>> characters = Arrays.asList(
+    private JSONArray JArr;
+    private ArrayList<Pair<String,String>> Arr = new ArrayList<>();/* = Arrays.asList(
             Pair.create("Lyra Belacqua", "Brave, curious, and crafty, she has been prophesied by the witches to help the balance of life"),
             Pair.create("Pantalaimon", "Lyra's daemon, nicknamed Pan."),
             Pair.create("Roger Parslow", "Lyra's friends"),
@@ -25,11 +30,50 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             Pair.create("Lee Scoresby", "Texan aeronaut who transports Lyra in his balloon. Good friend with Iorek Byrnison."),
             Pair.create("Ma Costa", "Gyptian woman whose son, Billy Costa is abducted by the \"Gobblers\"."),
             Pair.create("John Faa", "The King of all gyptian people.")
-    );
+    );*/
+    void setJArr(JSONArray Array) {
+        JArr = Array;
+    }
+    public void ConvertToArray(){
+        JSONArray jsonArray = JArr;
+        if (jsonArray != null) {
+            int len = jsonArray.length();
+            for (int i = 0; i < len; i++){
+                String name;
+                String description;
+                JSONObject sub;
+                try {
+                    sub = JArr.getJSONObject(i);
+                    Log.d("sub", String.valueOf(sub));
+                    try {
+                        name = sub.getString("name");
+                        Log.d("name", String.valueOf(name));
+                        try {
+                            description = sub.getString("description");
+                            Log.d("description", String.valueOf(description));
+                            Pair<String,String> p = new Pair<String, String>(name,description);
+                            Arr.add(p);
+                            Log.d("ARRAY", String.valueOf(Arr));
+                        } catch (JSONException e){
+                            e.printStackTrace();
+                        }
+                        catch (UnsupportedOperationException e){
+                            e.printStackTrace();
+                        }
+                    } catch (JSONException e){
+                        e.printStackTrace();
+                    }
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
+            }
+            notifyDataSetChanged();
+        }
+    }
 
     @Override
     public int getItemCount() {
-        return characters.size();
+        return Arr.size();
     }
 
     @Override
@@ -41,7 +85,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Pair<String, String> pair = characters.get(position);
+        Pair<String, String> pair = Arr.get(position);
+
         holder.display(pair);
     }
 

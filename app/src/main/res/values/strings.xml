@@ -2,5 +2,4 @@
 <resources>
     <string name="app_name">Beer</string>
     <string name="btndl">Start Drinking</string>
-    <string name="btnd2">List</string>
 </resources>

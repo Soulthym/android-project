@@ -10,21 +10,10 @@
 
     <Button
         android:id="@+id/btndl"
-        android:onClick="launchDownload"
+        android:onClick="launchListActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="@string/btndl"/>
-
-    <Button
-        android:id="@+id/btnd2"
-        android:layout_below="@+id/btndl"
-        android:onClick="launchListActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/btnd2"/>
-
 
 </RelativeLayout>

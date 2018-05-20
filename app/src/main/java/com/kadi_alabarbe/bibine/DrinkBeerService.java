@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.Context;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
+import android.widget.ListAdapter;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -67,8 +68,7 @@ public class DrinkBeerService extends IntentService {
             if(HttpURLConnection.HTTP_OK == conn.getResponseCode()) {
                 copyInputStreamToFile(conn.getInputStream(),
                         new File(getCacheDir(), "bieres.json"));
-                Log.d(TAG, "Bières json downloaded !");
-                LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(MainActivity.BEER_UPDATE));
+                LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(ListActivity.BEER_UPDATE));
             }
 
         }catch(MalformedURLException e) {
