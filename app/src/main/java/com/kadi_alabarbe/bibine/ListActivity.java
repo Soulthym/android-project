@@ -22,7 +22,7 @@ import java.io.InputStream;
 import static java.lang.Thread.sleep;
 
 public class ListActivity extends AppCompatActivity {
-    private ListActivity.BeerUpdate Beer;
+    ListActivity.BeerUpdate Beer;
     public static final String BEER_UPDATE = "com.octip.cours.inf4042_11.BIERS_UPDATE";
     // --Commented out by Inspection (20/05/2018 23:49):private static final String TAG = DrinkBeerService.class.getSimpleName();
     private ListAdapter Adapter;
@@ -65,7 +65,7 @@ public class ListActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
                 return new JSONArray();
-            } catch (JSONException e) {
+            } catch (JSONException e){
                 e.printStackTrace();
                 return new JSONArray();
             }

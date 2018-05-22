@@ -30,7 +30,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             for (int i = 0; i < len; i++) {
                 String name;
                 String description;
-                JSONObject sub;
+                JSONObject sub; // {..."name":" "}
                 try {
                     sub = JArr.getJSONObject(i);
                     Log.d("sub", String.valueOf(sub));
