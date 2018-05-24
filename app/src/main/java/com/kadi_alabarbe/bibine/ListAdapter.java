@@ -1,15 +1,15 @@
 package com.kadi_alabarbe.bibine;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,7 +20,6 @@ import java.util.ArrayList;
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     private JSONArray JArr;
     private final ArrayList<Pair<String, String>> Arr = new ArrayList<>();
-
     void setJArr(JSONArray Array) {
         JArr = Array;
     }
@@ -82,19 +81,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
             name = itemView.findViewById(R.id.name);
             description = itemView.findViewById(R.id.description);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
+            Button click = itemView.findViewById(R.id.btnd2);
+            click.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(itemView.getContext());
                     builder.setTitle(currentPair.first);
-                    builder.setMessage(currentPair.second)
-                            .setCancelable(false)
-                            .setPositiveButton("Note", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    //do things
-                                }
-                            });
+                    builder.setMessage(currentPair.second);
+                    builder.setCancelable(true);
+//                    builder.setPositiveButton("Favori", new DialogInterface.OnClickListener() {
+//                                public void onClick(DialogInterface dialog, int id) {
+//                                    //do things
+//                                }
+//                            });
                     AlertDialog alert = builder.create();
                     alert.show();
                 }

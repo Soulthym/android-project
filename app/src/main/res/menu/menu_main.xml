@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
      <item
         android:id="@+id/credit"
-        android:title="Credits"
-        app:showAsAction="always"
+        android:title="Credit"
+        app:showAsAction="never"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         android:icon="@drawable/credit"

@@ -27,6 +27,10 @@ public class ListActivity extends AppCompatActivity {
     // --Commented out by Inspection (20/05/2018 23:49):private static final String TAG = DrinkBeerService.class.getSimpleName();
     private ListAdapter Adapter;
 
+    public void notif() {
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         launchDownload();
