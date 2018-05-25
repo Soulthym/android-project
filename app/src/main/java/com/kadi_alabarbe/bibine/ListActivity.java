@@ -42,13 +42,13 @@ public class ListActivity extends AppCompatActivity {
     }
 
     public void notif(int notificationID, String content) {
-//        Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.downloadspongebob);
+        Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.downloadspongebob);
 //          Buggy for now
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
-//        mBuilder.setLargeIcon(bm);
-        mBuilder.setSmallIcon(R.drawable.downloadspongebob);
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this,"Bibine");
+        mBuilder.setLargeIcon(bm);
+//        mBuilder.setSmallIcon(R.drawable.downloadspongebob);
         mBuilder.setContentTitle("Beer");
-        mBuilder.setContentText("content");
+        mBuilder.setContentText(content);
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         mNotificationManager.notify(notificationID, mBuilder.build());
@@ -72,11 +72,11 @@ public class ListActivity extends AppCompatActivity {
         IntentFilter intentFilter = new IntentFilter(BEER_UPDATE);
         Beer = new ListActivity.BeerUpdate();
         LocalBroadcastManager.getInstance(this).registerReceiver(Beer, intentFilter);
-        notif(42,"starting");
     }
 
     private void launchDownload() {
         DrinkBeerService.startActionBeer(this);
+        notif(42,"Downloading...");
     }
 
     public class BeerUpdate extends BroadcastReceiver {
@@ -85,7 +85,7 @@ public class ListActivity extends AppCompatActivity {
 //            Log.d(TAG, getIntent().getAction());
             Adapter.setJArr(getBeerFromFile());
             Adapter.ConvertToArray();
-            Log.d("TODO", "UPDATE");
+            notif(42,"Download Succesful!");
         }
 
         JSONArray getBeerFromFile() {
