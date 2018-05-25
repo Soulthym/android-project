@@ -1,9 +1,5 @@
 package com.kadi_alabarbe.bibine;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Button;
@@ -75,7 +71,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     class ViewHolder extends RecyclerView.ViewHolder{
         private final TextView name;
         private final TextView description;
-        private Activity activity;
 
         private Pair<String, String> currentPair;
 

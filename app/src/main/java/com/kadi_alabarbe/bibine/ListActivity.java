@@ -62,7 +62,7 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void launchDownload() {
-        DrinkBeerService.startActionPoke(this);
+        DrinkBeerService.startActionBeer(this);
     }
 
     public class BeerUpdate extends BroadcastReceiver {

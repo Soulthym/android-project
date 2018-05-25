@@ -41,7 +41,7 @@ public class DrinkBeerService extends IntentService {
         super("DrinkBeerService");
     }
 
-    public static void startActionPoke(Context context) {
+    public static void startActionBeer(Context context) {
         Intent intent = new Intent(context, DrinkBeerService.class);
         intent.setAction(ACTION_BEER);
         context.startService(intent);
@@ -52,12 +52,12 @@ public class DrinkBeerService extends IntentService {
         if (intent != null) {
             final String action = intent.getAction();
             if (ACTION_BEER.equals(action)) {
-                handleActionPoke();
+                handleActionBeer();
             }
         }
     }
 
-    private void handleActionPoke() {
+    private void handleActionBeer() {
         Log.d(TAG, "Thread service name:" + Thread.currentThread().getName());
         URL url = null;
         try {
