@@ -3,11 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
      <item
         android:id="@+id/credit"
-        android:title="Credit"
+        android:title="Credits"
         app:showAsAction="always"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         android:icon="@drawable/credit"
         />
+
+     <item android:id="@+id/francais"
+          android:title="Français"
+          app:showAsAction="never"
+          />
+     <item android:id="@+id/anglais"
+          android:title="Anglais"
+          app:showAsAction="never"
+          />
 
 </menu>
