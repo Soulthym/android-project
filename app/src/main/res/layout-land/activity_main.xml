@@ -13,4 +13,14 @@
         android:onClick="launchListActivity"
         android:text="@string/btndl" />
 
+    <ImageView android:id="@+id/imgvw"
+        android:visibility="invisible"
+        android:contentDescription="image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:alpha="0.95"
+        android:src="@drawable/beerbackground"/>
+
 </LinearLayout>

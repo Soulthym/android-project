@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
      <item
         android:id="@+id/credit"
-        android:title="Credit"
+        android:title="@string/credits"
         app:showAsAction="never"
         android:scaleType="fitCenter"
         android:adjustViewBounds="true"
@@ -11,11 +11,11 @@
         />
 
      <item android:id="@+id/francais"
-          android:title="Français"
+          android:title="@string/francais"
           app:showAsAction="never"
           />
      <item android:id="@+id/anglais"
-          android:title="Anglais"
+          android:title="@string/anglais"
           app:showAsAction="never"
           />
 

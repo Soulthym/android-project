@@ -7,9 +7,10 @@
     <string name="btndl">Start Drinking</string>
     <string name="anglais">English</string>
     <string name="francais">French</string>
-    <string name="credit">Credits</string>
+    <string name="credits">Credits</string>
     <string name="downloadTitle">Beer Downloader</string>
     <string name="downloadTextDownloading">Downloading...</string>
     <string name="downloadTextDownloadFinished">Download Finished!</string>
+    <string name="lang">Language set to</string>
 
 </resources>

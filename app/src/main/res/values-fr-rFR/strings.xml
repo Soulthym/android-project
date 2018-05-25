@@ -7,8 +7,10 @@
     <string name="btndl">Commencer à Boire</string>
     <string name="anglais">Anglais</string>
     <string name="francais">Français</string>
-    <string name="credit">Credits</string>
+    <string name="credits">Crédits</string>
     <string name="downloadTitle">Téléchargeur de Bières</string>
     <string name="downloadTextDownloading">Téléchargement en cours...</string>
     <string name="downloadTextDownloadFinished">Téléchargement terminé!</string>
+    <string name="lang">Langue sélectionnée:</string>
+
 </resources>
