@@ -5,4 +5,7 @@
     <string name="anglais">English</string>
     <string name="francais">French</string>
     <string name="credit">Credits</string>
+    <string name="downloadTitle">Credits</string>
+    <string name="downloadText">Credits</string>
+
 </resources>

@@ -1,11 +1,16 @@
 package com.kadi_alabarbe.bibine;
 
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -36,8 +41,17 @@ public class ListActivity extends AppCompatActivity {
         this.urlComplement = urlComplement;
     }
 
-    public void notif() {
+    public void notif(int notificationID, String content) {
+//        Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.downloadspongebob);
+//          Buggy for now
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this);
+//        mBuilder.setLargeIcon(bm);
+        mBuilder.setSmallIcon(R.drawable.downloadspongebob);
+        mBuilder.setContentTitle("Beer");
+        mBuilder.setContentText("content");
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
+        mNotificationManager.notify(notificationID, mBuilder.build());
     }
 
     public void OpenWebView(View target) {
@@ -58,7 +72,7 @@ public class ListActivity extends AppCompatActivity {
         IntentFilter intentFilter = new IntentFilter(BEER_UPDATE);
         Beer = new ListActivity.BeerUpdate();
         LocalBroadcastManager.getInstance(this).registerReceiver(Beer, intentFilter);
-//        OpenWebView("coucou");
+        notif(42,"starting");
     }
 
     private void launchDownload() {

@@ -12,10 +12,10 @@ public class LanguageSelection {
 
         switch (langue){
             case "fr-rFR":
-                config.locale=Locale.FRENCH;
+                config.setLocale(Locale.FRENCH);
                 break;
             default:
-                config.locale=Locale.ENGLISH;
+                config.setLocale(Locale.ENGLISH);
                 break;
         }
         res.updateConfiguration(config, res.getDisplayMetrics());
