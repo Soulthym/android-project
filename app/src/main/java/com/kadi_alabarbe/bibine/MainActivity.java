@@ -33,8 +33,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-//        DrinkBeerService.startActionPoke(this);
+        getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+        //        DrinkBeerService.startActionPoke(this);
     }
 
     @Override
@@ -45,29 +45,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected (MenuItem item) {
-        int id = item.getItemId();
-
-        if(id == R.id.credit) {
-            Toast.makeText(getApplicationContext(), "KADI Antonin_ALABARBE Thybault_2017_2018", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        if(id == R.id.francais) {
-            Locale locale = new Locale("fr-rFR");
-            Locale.setDefault(locale);
-            Configuration config= new Configuration();
-            config.locale = locale;
-            getBaseContext().getResources().updateConfiguration(config, getBaseContext(). getResources().getDisplayMetrics());
-            Toast.makeText(getApplicationContext(), "Langue Française", Toast.LENGTH_SHORT).show();
-
-        }
-        if(id == R.id.anglais) {
-            Locale locale1 = new Locale("en-us");
-            Locale.setDefault(locale1);
-            Configuration config1= new Configuration();
-            config1.locale = locale1;
-            getBaseContext().getResources().updateConfiguration(config1, getBaseContext(). getResources().getDisplayMetrics());
-            Toast.makeText(getApplicationContext(), "English Language", Toast.LENGTH_SHORT).show();
-
+        switch (item.getItemId()) {
+            case R.id.credit:
+                Toast.makeText(getApplicationContext(), "KADI Antonin_ALABARBE Thybault_2017_2018", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.francais:
+                LanguageSelection fr = new LanguageSelection();
+                fr.changeLanguage(getResources(), "fr-rFR");
+                Toast toast_fr = Toast.makeText(this, "Français", Toast.LENGTH_SHORT);
+                toast_fr.show();
+                this.recreate();
+                break;
+            case R.id.anglais:
+                LanguageSelection en = new LanguageSelection();
+                en.changeLanguage(getResources(), "en-rUS");
+                Toast toast_en = Toast.makeText(this, "English", Toast.LENGTH_SHORT);
+                toast_en.show();
+                this.recreate();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
