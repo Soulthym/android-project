@@ -40,7 +40,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity{
 
-    private SensorManager sm;
+    SensorManager sm;
 
     private float acelVal;
     private float acelLast;
