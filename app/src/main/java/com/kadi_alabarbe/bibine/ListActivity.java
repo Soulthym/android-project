@@ -1,5 +1,6 @@
 package com.kadi_alabarbe.bibine;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -10,13 +11,12 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,9 +24,6 @@ import org.json.JSONException;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
-import static java.lang.Thread.sleep;
-
 
 public class ListActivity extends AppCompatActivity {
     ListActivity.BeerUpdate Beer;
@@ -43,15 +40,19 @@ public class ListActivity extends AppCompatActivity {
 
     public void notif(int notificationID, String content) {
         Bitmap bm = BitmapFactory.decodeResource(getResources(), R.drawable.downloadspongebob);
-//          Buggy for now
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this,"Bibine");
-        mBuilder.setLargeIcon(bm);
-//        mBuilder.setSmallIcon(R.drawable.downloadspongebob);
-        mBuilder.setContentTitle("Beer");
-        mBuilder.setContentText(content);
+//          sometimes crashes, memory problem apparently
+        Notification notification = new NotificationCompat.Builder(this, getResources().getString(R.string.channel_id))
+                .setContentTitle(getResources().getString(R.string.downloadTitle))
+                .setContentText(content)
+                .setSmallIcon(R.drawable.logo)
+                .setLargeIcon(bm)
+                .setStyle(new NotificationCompat.BigPictureStyle()
+                        .bigPicture(bm)
+                        .bigLargeIcon(null))
+                .build();
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        mNotificationManager.notify(notificationID, mBuilder.build());
+        mNotificationManager.notify(notificationID, notification);
+        //Toast.makeText(this, "Download".concat(content), Toast.LENGTH_LONG).show();
     }
 
     public void OpenWebView(View target) {
@@ -76,7 +77,7 @@ public class ListActivity extends AppCompatActivity {
 
     private void launchDownload() {
         DrinkBeerService.startActionBeer(this);
-        notif(42,"Downloading...");
+        notif(42, getResources().getString(R.string.downloadTextDownloading));
     }
 
     public class BeerUpdate extends BroadcastReceiver {
@@ -85,7 +86,7 @@ public class ListActivity extends AppCompatActivity {
 //            Log.d(TAG, getIntent().getAction());
             Adapter.setJArr(getBeerFromFile());
             Adapter.ConvertToArray();
-            notif(42,"Download Succesful!");
+            notif(42, getResources().getString(R.string.downloadTextDownloadFinished));
         }
 
         JSONArray getBeerFromFile() {
@@ -99,7 +100,7 @@ public class ListActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
                 return new JSONArray();
-            } catch (JSONException e){
+            } catch (JSONException e) {
                 e.printStackTrace();
                 return new JSONArray();
             }

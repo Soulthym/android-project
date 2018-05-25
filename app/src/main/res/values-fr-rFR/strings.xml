@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="channel_id">Bière</string>
+    <string name="channel_name">TéléchargerBière</string>
+    <string name="channel_description">Notification Telechargement Biere</string>
     <string name="app_name">Bibine</string>
     <string name="btndl">Commencer à Boire</string>
     <string name="anglais">Anglais</string>
     <string name="francais">Français</string>
     <string name="credit">Credits</string>
+    <string name="downloadTitle">Téléchargeur de Bières</string>
+    <string name="downloadTextDownloading">Téléchargement en cours...</string>
+    <string name="downloadTextDownloadFinished">Téléchargement terminé!</string>
 </resources>

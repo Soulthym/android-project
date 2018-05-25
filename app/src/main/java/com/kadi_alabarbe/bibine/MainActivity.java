@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
 
+import android.util.StringBuilderPrinter;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             CharSequence name = getString(R.string.channel_name);
             String description = getString(R.string.channel_description);
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel("Bibine", name, importance);
+            NotificationChannel channel = new NotificationChannel(getResources().getString(R.string.channel_id), name, importance);
             channel.setDescription(description);
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
@@ -70,15 +71,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.francais:
                 LanguageSelection fr = new LanguageSelection();
                 fr.changeLanguage(getResources(), "fr-rFR");
-                Toast toast_fr = Toast.makeText(this, "Français", Toast.LENGTH_SHORT);
-                toast_fr.show();
+                Toast.makeText(this, "Français", Toast.LENGTH_SHORT).show();
                 this.recreate();
                 break;
             case R.id.anglais:
                 LanguageSelection en = new LanguageSelection();
                 en.changeLanguage(getResources(), "en-rUS");
-                Toast toast_en = Toast.makeText(this, "English", Toast.LENGTH_SHORT);
-                toast_en.show();
+                Toast.makeText(this, "English", Toast.LENGTH_SHORT).show();
                 this.recreate();
                 break;
         }

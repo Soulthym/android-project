@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="channel_id">Beer</string>
     <string name="channel_name">BeerDownload</string>
     <string name="channel_description">Beer Download Notification</string>
     <string name="app_name">Beer</string>
@@ -7,7 +8,8 @@
     <string name="anglais">English</string>
     <string name="francais">French</string>
     <string name="credit">Credits</string>
-    <string name="downloadTitle">Credits</string>
-    <string name="downloadText">Credits</string>
+    <string name="downloadTitle">Beer Downloader</string>
+    <string name="downloadTextDownloading">Downloading...</string>
+    <string name="downloadTextDownloadFinished">Download Finished!</string>
 
 </resources>
