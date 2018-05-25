@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
@@ -21,14 +22,28 @@ import java.io.InputStream;
 
 import static java.lang.Thread.sleep;
 
+
 public class ListActivity extends AppCompatActivity {
     ListActivity.BeerUpdate Beer;
+    String urlComplement = "startup";
+
     public static final String BEER_UPDATE = "com.octip.cours.inf4042_11.BIERS_UPDATE";
-    // --Commented out by Inspection (20/05/2018 23:49):private static final String TAG = DrinkBeerService.class.getSimpleName();
+    private static final String TAG = DrinkBeerService.class.getSimpleName();
+
     private ListAdapter Adapter;
+
+    public void setUrlComplement(String urlComplement) {
+        this.urlComplement = urlComplement;
+    }
 
     public void notif() {
 
+    }
+
+    public void OpenWebView(View target) {
+        Intent i = new Intent(Intent.ACTION_VIEW,
+                Uri.parse("http://www.google.com/search?&sourceid=navclient&btnI=I&q=".concat(urlComplement)));
+        startActivity(i);
     }
 
     @Override
@@ -43,6 +58,7 @@ public class ListActivity extends AppCompatActivity {
         IntentFilter intentFilter = new IntentFilter(BEER_UPDATE);
         Beer = new ListActivity.BeerUpdate();
         LocalBroadcastManager.getInstance(this).registerReceiver(Beer, intentFilter);
+//        OpenWebView("coucou");
     }
 
     private void launchDownload() {

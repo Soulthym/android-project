@@ -2,18 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     android:layout_gravity="center_vertical"
     android:layoutDirection="rtl"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:context=".ListActivity"
+    >
+    <!--android:background="@drawable/patrick"-->
+    <!--android:scaleType="fitCenter"-->
+    <!--android:layout_width="60dp"-->
+    <!--android:layout_height="60dp"-->
 
     <Button
         android:id="@+id/btnd2"
         android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:background="@drawable/patrick"
         android:layout_width="60dp"
-        android:layout_height="70dp"/>
+        android:layout_height="60dp"
+        android:textSize="12sp"
+        android:text="View More"
+        android:onClick="OpenWebView"/>
 
     <LinearLayout
         android:layout_width="match_parent"
